@@ -1,0 +1,40 @@
+1.
+
+// ...
+  render (
+    <p>{userInput}</p>
+  );
+// ...
+
+This code is
+- safe, because JSX escapes any embeded values before rendering them
+
+2. Every time the render method in a react component is called, 
+- only DOM elements with updated content will be re-painted
+
+3. What's wrong?
+- 'handleClick()' is not bound to the instance of the component
+- 'handleClick()' is being called on every render, which triggers a re-render, resulting in an infinite loop
+
+4. The React lifecycle method, componentDidUpdate
+- is called immediately after updating occurs, but is not called on the initial render
+
+5. Functional React components are preferred over Class componenets when a component
+- is purely presentational
+
+6. What's wrong?
+- Mutating state. It should call 'this.setState' to update the state
+
+7. The lifecyle method, componentDidMount,
+- is called only after a component has finished mounting but not when it re-renders
+
+8. Passing down new props into the ColorTitle component will not update its state
+
+9. Reducers
+- action is sent to EVERY reducer, but new slices of state are only return for reducers that are designed to match the action's type
+
+10. Thunk Middleware for redux makes it easier for devs to handle async requests for data. How?
+- Thunk middleware intercepts everything that is dispatched. If the data that is being dispatched is a function, that function is invoked and passed the 'dispatch' method (to be called when the function resolves). If the data is a plain JS object, that object is sent straight to the reducer.
+
+11. How does a component get access to data in the Redux Store?
+- The component should be turned into a 'connected component' using a Redux container
